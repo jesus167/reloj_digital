@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div id="time">
+            <div id="hours">00</div>
+            <div id="minutes">00</div>
+            <div id="seconds">00</div>
+            <div id="ampm">AM</div>
+        </div>
+        <div class="linea"></div>
+        <div id="date">
+            <div id="days">00</div>
+            <div id="months">00</div>
+            <div id="years">0000</div>
+        </div>
+    </div>
+
+    <script>
+
+        let hr = document.querySelector('#hours');
+        let mn = document.querySelector('#minites');
+        let sc = document.querySelector('#seconds');
+        let days =  document.querySelector('#days');
+        let months =  document.querySelector('#months');
+        let years =  document.querySelector('#years');
+
+        setInterval(() =>{
+
+
+            let hours = document.getElementById('hours');
+            let minutes = document.getElementById('minutes');
+            let seconds = document.getElementById('seconds');
+            let ampm = document.getElementById('ampm');
+            let days = document.getElementById('days');
+            let months = document.getElementById('months');
+            let years = document.getElementById('years');
+        
+
+            let h = new Date().getHours();
+            let m = new Date().getMinutes();
+            let s = new Date().getSeconds();
+
+            let d = new Date().getDate();
+            let mo = new Date().getMonth() + 1;
+            let y = new Date().getFullYear();
+            
+
+            let am = h >= 12 ? "PM" : "AM" ;
+
+            //convert 24 hr clocl to 12 hr clock
+
+            if ( h>12){
+                h = h -12;
+            }
+
+            // add zero before single digit number
+
+            h = (h<10) ? "0" + h : h
+            m = (m<10) ? "0" + m : m
+            s = (s<10) ? "0" + s : s
+
+            d = (d<10) ? "0" + d : d
+            mo = (mo<10) ? "0" + mo : mo
+            
+
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+            ampm.innerHTML = am;
+            days.innerHTML = d;
+            months.innerHTML = mo;
+            years.innerHTML = y;
+        })
+    </script>
+</body>
+</html>
